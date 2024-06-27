@@ -6,7 +6,8 @@ import CommentList from "./CommentList";
 export default () => {
     const [posts, setPosts] = useState({});
     const fetchedPosts = async () => {
-        const res = await axios.get('http://localhost:4000/posts');
+        // const res = await axios.get('http://localhost:4000/posts');
+        const res = await axios.get('http://localhost:4002/posts');
 
         setPosts(res.data);
     }
@@ -17,7 +18,8 @@ export default () => {
         return (
             <div key={post.id}>
                 <h3> Blog Title: {post.title}</h3>
-                <CommentList postId={post.id} />
+                {/* <CommentList postId={post.id} /> */}
+                <CommentList comments={post.comments} />
                 <CreateComment postId={post.id} />
 
             </div>
