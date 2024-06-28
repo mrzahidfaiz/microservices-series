@@ -13,7 +13,7 @@ export default () => {
     }
 
     useEffect(() => { fetchedPosts() }, []);
-
+    console.log(posts);
     const renderedPosts = Object.values(posts).map(post => {
         return (
             <div key={post.id}>
