@@ -7,9 +7,15 @@ export default () => {
     const [posts, setPosts] = useState({});
     const fetchedPosts = async () => {
         // const res = await axios.get('http://localhost:4000/posts');
-        const res = await axios.get('http://localhost:4002/posts');
+        try {
+            const res = await axios.get('http://localhost:4002/posts');
+            setPosts(res.data);
+        } catch (error) {
+            console.log(error.message);
+        }
+        
 
-        setPosts(res.data);
+        
     }
 
     useEffect(() => { fetchedPosts() }, []);
